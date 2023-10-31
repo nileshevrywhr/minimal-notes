@@ -67,3 +67,9 @@ public
 .idea
 .vscode
 .DS_Store
+
+# default articles
+code-block-examples
+markdown-reference
+normal-text
+with-images

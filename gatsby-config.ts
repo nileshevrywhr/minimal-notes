@@ -8,11 +8,11 @@ const config: GatsbyConfig = {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.mjs
-    siteTitle: `@nileshevrywhr (Nilesh Kumar)`,
-    siteTitleAlt: `Minimal Notes - @nileshevrywhr`,
+    siteTitle: `nileshevrywhr`,
+    siteTitleAlt: `@nileshevrywhr (Nilesh Kumar)`,
     siteHeadline: `Minimal Notes - Everything by @nileshevrywhr`,
-    siteUrl: `https://minimal-blog.lekoarts.de`,
-    siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
+    siteUrl: `https://minimal-notes.nileshkumar.x`,
+    siteDescription: `documenting my explorations & experiments in several disciplines`,
     siteImage: `/banner.jpg`,
     siteLanguage: `en`,
     author: `@nileshevrywhr`,
@@ -28,20 +28,20 @@ const config: GatsbyConfig = {
             title: `Blog`,
             slug: `/blog`,
           },
-          {
-            title: `About`,
-            slug: `/about`,
-          },
+          // {
+          //   title: `About`,
+          //   slug: `/about`,
+          // },
         ],
         externalLinks: [
           {
             name: `Twitter`,
             url: `https://twitter.com/nileshevrywhr`,
           },
-          {
-            name: `Homepage`,
-            url: `https://www.lekoarts.de?utm_source=minimal-blog&utm_medium=Starter`,
-          },
+          // {
+          //   name: `Homepage`,
+          //   url: `https://www.lekoarts.de?utm_source=minimal-blog&utm_medium=Starter`,
+          // },
         ],
       },
     },
@@ -54,9 +54,9 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-        short_name: `minimal-blog`,
-        description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+        name: `minimal-notes - @nileshevrywhr`,
+        short_name: `minimal-notes`,
+        description: `documenting my explorations & experiments in several disciplines`,
         start_url: `/`,
         background_color: `#fff`,
         // This will impact how browsers show your PWA/website
@@ -113,17 +113,17 @@ const config: GatsbyConfig = {
                 }
               }),
             query: `{
-  allPost(sort: {date: DESC}) {
-    nodes {
-      title
-      date(formatString: "MMMM D, YYYY")
-      excerpt
-      slug
-    }
-  }
-}`,
+                allPost(sort: {date: DESC}) {
+                  nodes {
+                    title
+                    date(formatString: "MMMM D, YYYY")
+                    excerpt
+                    slug
+                  }
+                }
+              }`,
             output: `rss.xml`,
-            title: `Minimal Blog - @lekoarts/gatsby-theme-minimal-blog`,
+            title: `Minimal Notes - @nileshevrywhr`,
           },
         ],
       },

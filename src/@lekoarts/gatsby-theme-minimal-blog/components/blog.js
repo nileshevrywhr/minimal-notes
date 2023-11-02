@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Heading } from "theme-ui";
 import { Flex } from "@theme-ui/components";
-import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout";
 import ListingByYear from "./listing-by-year";
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo";

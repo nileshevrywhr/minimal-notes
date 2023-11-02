@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, Heading } from "theme-ui";
 import { Flex } from "@theme-ui/components";
-import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout";
 import Listing from "@lekoarts/gatsby-theme-minimal-blog/src/components/listing";
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo";
@@ -50,7 +49,6 @@ const Tag = ({ posts, pageContext }) => {
           flexFlow: `wrap`
         }}
       >
-        {/* <Title>{`Blog: #${pageContext.name}`}</Title> */}
         <Heading as="h1" variant="styles.h1" sx={{ marginY: 2 }}>
         {`Blog: #${pageContext.name}`}
         </Heading>

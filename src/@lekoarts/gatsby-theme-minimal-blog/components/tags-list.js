@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Styled } from "theme-ui";
+import { jsx } from "theme-ui";
 import { Box } from "@theme-ui/components";
 import kebabCase from "lodash.kebabcase";
 import { Link } from "gatsby";

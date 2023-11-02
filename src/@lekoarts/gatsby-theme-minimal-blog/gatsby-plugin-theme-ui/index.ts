@@ -11,7 +11,7 @@ declare module "theme-ui" {
 
 const theme = merge(tailwind, {
   config: {
-    initialColorModeName: `light`,
+    initialColorModeName: `dark`,
   },
   colors: {
     primary: tailwind.colors.purple[7],
@@ -37,9 +37,6 @@ const theme = merge(tailwind, {
       },
     },
   },
-  // fonts: {
-  //   body: `-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
-  // },
   fonts: {
     body: `"IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
   },

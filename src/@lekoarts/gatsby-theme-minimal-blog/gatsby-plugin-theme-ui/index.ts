@@ -15,7 +15,6 @@ const theme = merge(tailwind, {
   },
   colors: {
     primary: tailwind.colors.purple[7],
-    // primary: tailwind.colors.white,
     secondary: `#5f6c80`,
     toggleIcon: tailwind.colors.gray[8],
     heading: tailwind.colors.black,
@@ -38,8 +37,11 @@ const theme = merge(tailwind, {
       },
     },
   },
+  // fonts: {
+  //   body: `-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
+  // },
   fonts: {
-    body: `-apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"`,
+    body: `"IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
   },
   styles: {
     root: {

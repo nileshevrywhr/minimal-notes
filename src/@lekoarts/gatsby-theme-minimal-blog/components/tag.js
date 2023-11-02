@@ -3,7 +3,7 @@ import { jsx, Heading } from "theme-ui";
 import { Flex } from "@theme-ui/components";
 import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout";
-import ListingByYear from "./listing-by-year";
+import Listing from "@lekoarts/gatsby-theme-minimal-blog/src/components/listing";
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo";
 import usePostTags from "../hooks/use-post-tags";
 import TagsList from "./tags-list";
@@ -14,7 +14,7 @@ import TagsList from "./tags-list";
 // import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes";
 
 // Enable if using Typescript
-// type PostsProps = {
+// type TagProps = {
 //   posts: {
 //     slug: string
 //     title: string
@@ -22,21 +22,27 @@ import TagsList from "./tags-list";
 //     excerpt: string
 //     description: string
 //     timeToRead: number
-//     tags?: {
+//     tags: {
 //       name: string
 //       slug: string
 //     }[]
 //   }[]
+//   pageContext: {
+//     isCreatedByStatefulCreatePages: boolean
+//     slug: string
+//     name: string
+//     [key: string]: any
+//   }
 // }
 
-const Blog = ({ posts }) => {
+const Tag = ({ posts, pageContext }) => {
   // const { tagsPath, basePath } = useMinimalBlogConfig(); // Enable if linking to the "Tags" page
 
   const tags = usePostTags();
 
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO title={`Tag: ${pageContext.name}`} />
       <Flex
         sx={{
           alignItems: `center`,
@@ -44,8 +50,9 @@ const Blog = ({ posts }) => {
           flexFlow: `wrap`
         }}
       >
+        {/* <Title>{`Blog: #${pageContext.name}`}</Title> */}
         <Heading as="h1" variant="styles.h1" sx={{ marginY: 2 }}>
-          Blog
+        {`Blog: #${pageContext.name}`}
         </Heading>
         {/* <Styled.a
           as={Link}
@@ -60,11 +67,9 @@ const Blog = ({ posts }) => {
       <TagsList list={tags} />
       {/* */}
 
-      {/* Group posts by year */}
-      <ListingByYear posts={posts} sx={{ mt: [4, 5] }} />
-      {/* */}
+      <Listing posts={posts} sx={{ mt: [4, 5] }} />
     </Layout>
   );
 };
 
-export default Blog;
+export default Tag;

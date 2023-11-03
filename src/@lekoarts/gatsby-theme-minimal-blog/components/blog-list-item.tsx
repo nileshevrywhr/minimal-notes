@@ -20,12 +20,13 @@ type BlogListItemProps = {
   showTags?: boolean
 }
 
-const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
-  <Box mb={3}>
+const BlogListItem = ({ post }: BlogListItemProps) => (
+  <Box mb={2}>
     <time sx={() => ({ fontSize: [1, 2, 3], color: `text` })}>{post.date} </time>
-    <Link to={post.slug} sx={(t) => ({ ...t.styles?.a, fontSize: [1, 2, 3], color: `text` })}>
-      {post.title}
-    </Link>
+    
+      <Link to={post.slug} sx={(t) => ({ ...t.styles?.a, padding: '3%', fontSize: [1, 2, 3], color: `text` })}>
+        {post.title}
+      </Link>
     {/* <p sx={{ color: `secondary`, mt: 1, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
       <time>{post.date}</time>
       {post.tags && showTags && (

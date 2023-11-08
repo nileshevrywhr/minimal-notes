@@ -133,19 +133,20 @@ I requested for a quota with Genesis Cloud and got approval for 2 GPUs. Experime
 
 ## The Results
 
-After a month of roaming around parts of NOIDA & Delhi, the little pwnagotchi managed to collect Wi-Fi handshakes from **428** different wireless access points. Due to various networking issues, about **##** handshakes were submitted to the [OnlineHashCrack](https://www.onlinehashcrack.com/) and [wpa-sec](https://wpa-sec.stanev.org/) handshake-auditor services.
+After a month of roaming around parts of NOIDA & Delhi, the little pwnagotchi managed to collect Wi-Fi handshakes from **428** different wireless access points. Due to various networking issues, about **160** handshakes were submitted to the [OnlineHashCrack](https://www.onlinehashcrack.com/) and [wpa-sec](https://wpa-sec.stanev.org/) handshake-auditor services.
 
 ![This text rounds corners somehow.](./webgpsmapclear.png "Captured handshakes in Delhi NCR")
 
-In the end, the two online services found **## Wi-Fi access points with easily-guessable wireless passwords** around the area.
+In the end, the two online services found **36 Wi-Fi access points with easily-guessable wireless passwords** around the area.
 
-Having seen the ## weak passwords and their corresponding access points, I managed to draw the following conclusions:
+Having seen the 36 weak passwords and their corresponding access points, I managed to draw the following conclusions:
 
-    - Disable the insecure Wi-Fi Protected Setup (WPS) feature on your router. The 8-digit-long numbers-only passwords take mere seconds. (## wireless APs)
-    - If you have a pocket router, or use the personal hotspot feature on your phone, choose a strong password. (# APs)
-    - If you have a POS machine for your restaurant business, ensure your private Wi-Fi is protected with a strong password. (# APs)
-    - If you have a wireless access point for your office PCs, ensure it is either protected with a strong password or it relies on PKI-based authentication. (# APs)
-    - If you are a wealthy individual, ensure your AP name is not named after yourself and your wireless password is not easily guessable. (# AP)
+    - Disable the insecure Wi-Fi Protected Setup (WPS) feature on your home router. The 8-digit-long numbers-only would be cracked instantly. **(4 APs)**
+    - If you have a pocket router, or use the personal hotspot feature on your phone, choose a strong password. **(10 APs)**
+    - If you have a Wi-Fi router for your home or business, ensure it is not name after the make and model of the router, and definitely not your house number. **(9 APs)**
+    - Ensure you are not including you own mobile number(or anyone else's) in the network name. **(3 APs)**
+    - If you own smart IoT devices for automation or home security systems, change their default login credentials to something stronger. **(4 APs)** 
+    - If you are a wealthy individual, ensure your AP name is NOT named after yourself and your wireless password is not easily guessable. **(8 AP)**
 
 
 ![This text rounds corners somehow.](./onlinehashcrack-dashboard.png "OnlineHashCrack results page")
@@ -162,7 +163,7 @@ To secure your Wi-Fi networks, my practical advice is:
 
     - Choose a strong password to protect your wireless network;
     - Use WPA3 if available, and choose WPA3-compatible routers and devices;
-    - Use certificate-based wireless authentication if available;
+    - Use certificate-based wireless authentication whenever available;
     - Disable the Wi-Fi Protected Setup (WPS) feature on your router;
     - Randomly name your wireless access points to hide their purpose (e.g. networks for Point-of-Sale systems);
     - Hire a professional to secure your network if these things look complicated to you.

@@ -15,23 +15,21 @@ canonicalUrl: "https://blog-about-normal-text.com"
 
 ![is this text curving the corners?](./webgpsmap.png "Open Street Map with Cracked Handshakes")
 
-I heard about the pwnagotchi project from [Alex Lynd while he was on Hackster Café podcast](https://www.youtube.com/live/P_XftmStKvc). And it immediately fascinated me. After some research and convincing myself to purchase a ₹414($5) Raspberry Pi Zero W for ₹1499($18, global chip shortage still persisting in June 2023), I started [reading more](https://www.evilsocket.net/2019/10/19/Weaponizing-and-Gamifying-AI-for-WiFi-Hacking-Presenting-Pwnagotchi-1-0-0/) about the creation of this extremely awesome mix of software & hardware project. 
+I heard about the pwnagotchi project from [Alex Lynd while he was on Hackster Café podcast](https://www.youtube.com/live/P_XftmStKvc). And it fascinated me almost immediately. After some research and convincing myself to purchase a Raspberry Pi for 5X original price(global chip shortage still persisting in June 2023), I started [reading more](https://www.evilsocket.net/2019/10/19/Weaponizing-and-Gamifying-AI-for-WiFi-Hacking-Presenting-Pwnagotchi-1-0-0/). Here I make my best effort to document my time with the pwnagotchi and eventually draw some conclusions of the Wi-Fi security practices of Delhi and Non-Capitalized Regions surrounding this 9000 AQI capital city.
 
-As I read, I found the AI(to improve packet capture) and cryptographic keys(for identity & secure communication with other units) to be worth exploring. Here I make my best effort to document my time with the device and eventually draw some conclusions of the Wi-Fi security practices of Delhi and non-capitalized regions surrounding this 9000 AQI capital city.
-
-For those not familiar, a pwnagotchi device is essentially [bettercap](https://www.bettercap.org/) installed on a Pi Zero, allowing to capture Wi-Fi packets on the go. The captured Wi-Fi packets can be automatically uploaded to third-party services, and then analysed to reveal weak wireless passwords (PSKs) of the nearby wireless access points.
+For those not familiar, a pwnagotchi device is essentially [bettercap](https://www.bettercap.org/) installed on a Pi Zero, allowing you to capture Wi-Fi packets on the go. The captured Wi-Fi packets can be automatically uploaded to third-party services, and then analysed to reveal weak Wi-Fi passwords (PSKs).
 
 The pwnagotchi device I was carrying around in my backpack looked like this:
 
 ![my pwnagotchi on a powerbank(totally NOT an IED)](./setup.jpg "surprisingly passes undetected through x-ray baggage scanners")
 
-While I spent a week walking around, the pwnagotchi device was attempting to capturing wireless handshakes nearby to identify wireless networks with weak pre-shared keys. **My goal was to see how Wi-Fi owners fell short in 2023 when it comes to network security.**
+While I spent a week walking around, the pwnagotchi device was attempted to capture wireless handshakes to identify networks with weak passwords. **My goal was to see the easiest Wi-Fi passwords Wi-Fi owners are using in 2023.**
 
 ## Installation
 
-Unfortunately, the pwnagotchi project didn’t receive too much TLC recently as the main developer, evilsocket, moved on to other projects. I tried the official pwnagotchi release first, but I later realized the AI model doesn't start because of a numpy error and fixing it got pretty annoying.
+Unfortunately, the pwnagotchi project didn’t receive too much TLC recently as the main developer, evilsocket, moved on to other projects. I tried the [official release](https://github.com/evilsocket/pwnagotchi) first, but I later realized the AI model doesn't start because of a library error and fixing it is super annoying.
 
-In the end, I chose the [**wpa-2/pwnagotchi**](https://github.com/wpa-2/pwnagotchi) fork, which is the closest to the original evilsocket/pwnagotchi repository. Although both of them are not being actively developed, the ‘wpa-2’ fork has the numpy patch for AI, so I ended up using this one. 
+In the end, I chose the [**wpa-2/pwnagotchi**](https://github.com/wpa-2/pwnagotchi) fork, which is the closest to the original [evilsocket/pwnagotchi](https://github.com/wpa-2/pwnagotchi) repository. Although both of them are not being actively developed, the ‘wpa-2’ fork has the numpy patch for AI, so I ended up using this one. 
 
 For the basic pwnagotchi installation and configuration, [they are well covered on the official website](https://pwnagotchi.ai/installation/). Instead of repeating the installation steps, I am going to share how I use it in the following sections.
 
@@ -59,7 +57,7 @@ This setting requires the pwnagotchi to restart to take effect.
 
 ### Bettercap
 
-When the pwnagotchi is booted in Manual mode, the [Bettercap Web UI becomes available](https://pwnagotchi.ai/usage/#bettercap-s-web-ui) on port 80. The bettercap UI allows to monitor events, although I never ended up using it.
+When the pwnagotchi is booted in Manual mode, the [Bettercap Web UI becomes available](https://pwnagotchi.ai/usage/#bettercap-s-web-ui) on port 80. The bettercap UI allows monitoring  wireless events, although I never ended up using it.
 
 ![This text rounds corners somehow.](./bettercap.png "Bettercap UI")
 
@@ -72,14 +70,12 @@ There are two ways to connect to the pwnagotchi over a network:
 
 In the first case, the Pi Zero is connected to a PC over USB such as a laptop. This scenario allows simple SSH access from the laptop to the Pi Zero over USB-over-Ethernet. Obviously, this makes it difficult to carry the pwnagotchi around, as the cable needs to be connected to a clunky device.
 
-As for the Bluetooth option, the pwnagotchi can access the internet while it is powered by a power bank. And I can use an SSH client on my phone to access both the shell and the dashboard using a very clever Bluetooth Network Encapsulation Protocol (BNEP).
-
-I absolutely loved the latter method of access, mainly because it felt more hacker-y. 
+As for the Bluetooth option, the pwnagotchi can access the mobile internet while it is powered by a power bank. And with Bluetooth Network Encapsulation Protocol (BNEP), I can access  the dashboard and shell. This is more hacker-y, and hence my preferred way.
 
 ![This text rounds corners somehow.](./dashboard.png "pwnagotchi dashboard over bluetooth")
 ![This text rounds corners somehow.](./shell.png "pwnagotchi shell over bluetooth")
 
-As mentioned in the [Known problems for bluetooth](https://pwnagotchi.ai/configuration/#known-problems), I had to manually pair it with my phone the first time. And it connects automatically everytime after that, but keeps disconnecting & reconnecting a few times in between sessions.
+As mentioned in the [Known problems for bluetooth](https://pwnagotchi.ai/configuration/#known-problems), I had to manually pair it with my phone the first time.
 
 ### Hardware Temperature
 
@@ -89,13 +85,13 @@ On a related note, it is worthwhile monitoring the hardware temperature when the
 
 ### GPS issues(IN PROGRESS)
 
-Only the net-pos plugin seem to be working as of now, and updates the same location for a handful of handshakes, but enough to get the nice banner for this post.
+Only the net-pos plugin seem to be working as of now, and updates a single location for a bunch of handshakes, I only used it once, just to get a banner for this post.
 
 ## PSK Auditing Plugins
 
-The pwnagotchi comes with a [myriad of plugins](https://pwnagotchi.ai/plugins/) of varying quality. The two most important ones I found to enable are [wpa-sec](https://wpa-sec.stanev.org/) and [OnlineHashCrack](https://www.onlinehashcrack.com/). The pwnagotchi can automatically upload the captured handshakes to these two online Wi-Fi handshake auditing services. If the Wi-Fi passphrase is simple enough, these two online services can reveal the wireless password within 24 hours.
+The pwnagotchi comes with a [myriad of plugins](https://pwnagotchi.ai/plugins/) of varying quality. The two most important ones to enable are [wpa-sec](https://wpa-sec.stanev.org/) and [OnlineHashCrack](https://www.onlinehashcrack.com/). The pwnagotchi can automatically upload the captured handshakes to these two online Wi-Fi handshake auditing services. If the password is simple enough, these two online services can find it within 24 hours.
 
-If you don't like GUI, enable the password-auditing plugins with the following:
+Enable the password-auditing plugins with the following:
 
 ```pwnagotchi plugins enable onlinehashcrack```
 
@@ -113,7 +109,7 @@ Similarly, wpa-sec requires an API key (obtained from [here](https://wpa-sec.sta
 
 ```pwnagotchi plugins edit wpa-sec```
 
-The Wi-Fi pre-shared key auditing results will be available at once the pwnagotchi starts uploading them:
+The results will be available at once the pwnagotchi starts uploading them:
 
     - https://www.onlinehashcrack.com/dashboard
     - https://wpa-sec.stanev.org/?my_nets
@@ -122,14 +118,14 @@ The Wi-Fi pre-shared key auditing results will be available at once the pwnagotc
 
 ## Hash-Cracking using Cloud GPUs
 
-The Wi-Fi handshakes are also available in **/root/handshakes** on the pwnagotchi device for offline cracking with the hashcat toolkit.
+The Wi-Fi handshakes are also available in **/root/handshakes** on the pwnagotchi device for offline analysis with the hashcat toolkit.
 
 ### Using Genesis Cloud
-I procured a server in Norway with GPU access using [Genesis Cloud](https://gnsiscld.co/u1jgwp). I wanted try cracking passwords using hashcat because I had never done so before. It took a while to get something with attached GPU, since cloud providers everywhere are limiting access to GPU servers. Everyone's trying to do something with AI, [including me](https://example.com). GPUs being used for both AI and crypto shenanigans. NVIDIA stocks booming. 
+I rented a server in Norway with GPU access using [Genesis Cloud](https://gnsiscld.co/u1jgwp). I always wanted try cracking passwords because I had never done so before. It took a while to get something with attached GPU, since all cloud providers are limiting access to GPU servers. Everyone's trying to do something with AI, [including me](https://example.com). GPUs are being used for AI and crypto shenanigans. NVIDIA are stocks booming. 
 
-I requested for a quota with Genesis Cloud and got approval for 2 GPUs. Experimented with a bunch of options in hashcat and quickly realized how setting a long and complex password significantly increases the time required to finish the brute-force. 
+After getting the approval for 2 GPUs, I experimented with a bunch of options in hashcat and quickly realized how setting a long and complex password significantly increases the time required for an attacker to crack it. 
 
-![This text rounds corners somehow.](./hashcrack.png "malicious crackers leaving passwords hashes for next of kin")
+![This text rounds corners somehow.](./hashcrack.png "malicious attackers leaves password hashes for next of kin")
 
 ## The Results
 
@@ -141,34 +137,34 @@ In the end, the two online services found **36 Wi-Fi access points with easily-g
 
 Having seen the 36 weak passwords and their corresponding access points, I managed to draw the following conclusions:
 
-    - Disable the insecure Wi-Fi Protected Setup (WPS) feature on your home router. The 8-digit-long numbers-only would be cracked instantly. **(4 APs)**
+    - Disable the insecure Wi-Fi Protected Setup (WPS) feature on your home router. The 8-digit-long numbers-only is cracked instantly. **(4 APs)**
     - If you have a pocket router, or use the personal hotspot feature on your phone, choose a strong password. **(10 APs)**
-    - If you have a Wi-Fi router for your home or business, ensure it is not name after the make and model of the router, and definitely not your house number. **(9 APs)**
+    - If you have a Wi-Fi router for your home or business, ensure it is not named after the make and model of your router, and definitely not your house number. **(9 APs)**
     - Ensure you are not including you own mobile number(or anyone else's) in the network name. **(3 APs)**
     - If you own smart IoT devices for automation or home security systems, change their default login credentials to something stronger. **(4 APs)** 
     - If you are a wealthy individual, ensure your AP name is NOT named after yourself and your wireless password is not easily guessable. **(8 AP)**
 
 
-![This text rounds corners somehow.](./onlinehashcrack-dashboard.png "OnlineHashCrack results page")
+![This text rounds corners somehow.](./onlinehashcrack-dashboard-focused.png "OnlineHashCrack results page")
 
-![This text rounds corners somehow.](./wpa-sec-dashboard.png "wpa-sec results page")
+![This text rounds corners somehow.](./wpa-sec-dashboard-focused.png "wpa-sec results page")
 
 ## Conclusion
 
-Although Wi-Fi security is a well-researched, well-understood and over-communicated area, individuals and businesses both seem to configure Wi-Fi networks as it was still the early 2000s(not that I know how it was at that time).
+Although Wi-Fi security is a well-researched, well-understood and over-communicated area, everyone seems to configure Wi-Fi networks as it was still the early 2000s(not that I know how it was at the time).
 
-Without boring anyone to death by stating the obvious: WEP, WPA, weak PSKs are bad, while **WPA2, WPA3 and strong passwords rule**.
+Without boring anyone to death by stating the obvious: WEP, WPA, weak PSKs are bad, while **WPA2, WPA3 and strong passwords must be a priority**.
 
 To secure your Wi-Fi networks, my practical advice is:
 
-    - Choose a strong password to protect your wireless network;
+    - Choose a strong password to protect your wireless network, like L7:2DFbB9BD:tD5 strong;
     - Use WPA3 if available, and choose WPA3-compatible routers and devices;
-    - Use certificate-based wireless authentication whenever available;
+    - Use certificate-based wireless authentication if available;
     - Disable the Wi-Fi Protected Setup (WPS) feature on your router;
     - Randomly name your wireless access points to hide their purpose (e.g. networks for Point-of-Sale systems);
     - Hire a professional to secure your network if these things look complicated to you.
 
-As for the pwnagotchi, [it is still a fun project to tinker with despite the recent inactivity](https://www.reddit.com/r/pwnagotchi/) around its development. Once the small bug fixes are applied, the pwnagotchi just simply does its job as intended, while making the cutest faces.
+As for the pwnagotchi, [it's a fun project still tinkered with](https://www.reddit.com/r/pwnagotchi/) despite the recent inactivity around its development. Once the small bug fixes are applied, the pwnagotchi just simply does its job as intended, while making the cutest faces.
 
 ![This text rounds corners somehow.](./smart.png "smart face #17")
 

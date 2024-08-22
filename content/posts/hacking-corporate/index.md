@@ -1,5 +1,5 @@
 ---
-title: navigating corporate life: hacker edition
+title: navigating corporate life from a hacker's perspective
 date: 2024-08-22
 slug: "/hacking-corporate"
 description: a hacker's guide on not letting your job become your life

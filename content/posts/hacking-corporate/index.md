@@ -1,5 +1,5 @@
 ---
-title: navigating corporate life from a hacker's perspective
+title: navigating corporate jobs from a hacker's perspective
 date: 2024-08-22
 slug: "/hacking-corporate"
 description: a hacker's guide on not letting your job become your life
@@ -9,14 +9,12 @@ tags:
 banner: './banner.jpg'
 ---
 
-not giving 100% of your mind in 9-5 job will NOT lead to termination, time and money will be lost in hiring the next person
+not spending 100% of your mind in a 9-5 job will NOT lead to termination, bcoz time and money are lost in hiring the next person
 
-you must do the bare minimum - learn from your ex
+you must do the bare minimum. learn from your ex
 
-don't do so little which lead to manager raising questions, don't do so much which drains all of your energy post-work
+don't do so little that leads to manager raising questions, don't do so much that it drains all of your energy post-work
 
-there is a little gray area which would be your playground
-
-experiment enough to figure it out 
+there is a little gray area which would be your playground, experiment enough to figure it the boundaries
 
 

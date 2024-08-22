@@ -12,7 +12,7 @@ const config: GatsbyConfig = {
     siteTitleAlt: `@nileshevrywhr (Nilesh Kumar)`,
     siteHeadline: `Minimal Notes - Everything by @nileshevrywhr`,
     siteUrl: `https://minimal-notes.nileshkumar.x`,
-    siteDescription: `documenting my explorations & experiments in several disciplines`,
+    siteDescription: `documenting my explorations & experiments across several disciplines`,
     siteImage: `/banner.jpg`,
     siteLanguage: `en`,
     author: `@nileshevrywhr`,
@@ -38,10 +38,10 @@ const config: GatsbyConfig = {
             name: `Twitter`,
             url: `https://twitter.com/nileshevrywhr`,
           },
-          // {
-          //   name: `Homepage`,
-          //   url: `https://www.lekoarts.de?utm_source=minimal-blog&utm_medium=Starter`,
-          // },
+          {
+            name: `Instagram`,
+            url: `https://www.instagram.com/nileshevrywhr/`,
+          },
         ],
       },
     },
